@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+
+# JetBrains CLion
+.idea/
+
+# CMake
+cmake-build-debug/
+cmake-build-release/
+build/
+
