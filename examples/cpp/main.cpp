@@ -1,5 +1,5 @@
 #include <unistd.h>
-#include <rpy_pca9685/PCA9685.h>
+#include <PiPCA9685/PCA9685.h>
 
 int main() {
   

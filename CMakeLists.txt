@@ -54,8 +54,8 @@ set(INSTALL_CONFIG_DIR "${INSTALL_LIBS_DIR}/PiPCA9685/cmake")
 
 include(CMakePackageConfigHelpers)
 configure_package_config_file(
-    cmake/PiPCA9685-config.cmake.in
-        PiPCA9685-config.cmake
+    cmake/PiPCA9685Config.cmake.in
+        PiPCA9685Config.cmake
     INSTALL_DESTINATION lib/cmake/PiPCA9685
     PATH_VARS INSTALL_INCLUDE_DIR
 )
@@ -80,7 +80,7 @@ install(
 )
 
 install(
-    FILES "${CMAKE_CURRENT_BINARY_DIR}/PiPCA9685-config.cmake"
+    FILES "${CMAKE_CURRENT_BINARY_DIR}/PiPCA9685Config.cmake"
     DESTINATION ${INSTALL_CONFIG_DIR}
 )
 

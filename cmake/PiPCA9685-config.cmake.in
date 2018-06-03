@@ -1,7 +1,0 @@
-@PACKAGE_INIT@
-
-set_and_check(rpy_pca9685_INCLUDE_DIR "@PACKAGE_INSTALL_INCLUDE_DIR@")
-
-include("${CMAKE_CURRENT_LIST_DIR}/rpy_pca9685Targets.cmake")
-
-set(rpy_pca9685_LIBRARY rpy_pca9685)
