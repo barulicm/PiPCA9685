@@ -13,5 +13,5 @@ PYBIND11_MODULE(PiPCA9685, m) {
           .def("set_pwm_freq", &PCA9685::set_pwm_freq)
           .def("set_pwm", &PCA9685::set_pwm)
           .def("set_all_pwm", &PCA9685::set_all_pwm)
-          .def("set_servo_pwm", &PCA9685::set_servo_pwm);
+          .def("set_pwm_ms", &PCA9685::set_pwm_ms);
 }

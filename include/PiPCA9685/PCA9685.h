@@ -13,10 +13,13 @@ public:
 
     void set_all_pwm(uint16_t on, uint16_t off);
 
-    void set_servo_pwm(int channel, double ms);
+    void set_pwm_ms(int channel, double ms);
 
 private:
     int i2c_fd;
+    
+    // Default frequency pulled from PCA9685 datasheet.
+    double frequency = 200.0;
 
     void check_ret(int ret, std::string msg = "");
 

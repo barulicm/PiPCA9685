@@ -34,6 +34,8 @@ PCA9685::PCA9685(const std::string &device, int address) {
 }
 
 void PCA9685::set_pwm_freq(double freq_hz) {
+  frequency = freq_hz;
+
   auto prescaleval = 25000000.0; //    # 25MHz
   prescaleval /= 4096.0; //       # 12-bit
   prescaleval /= freq_hz;
@@ -70,8 +72,11 @@ void PCA9685::set_all_pwm(uint16_t on, uint16_t off) {
   wiringPiI2CWriteReg8(i2c_fd, ALL_LED_OFF_H, off >> 8);
 }
 
-void PCA9685::set_servo_pwm(int channel, double ms) {
-
+void PCA9685::set_pwm_ms(int channel, double ms) {
+  auto period_ms = 1000.0 / frequency;
+  auto bits_per_ms = 4096 / period_ms;
+  auto bits = ms * bits_per_ms;
+  set_pwm(channel, 0, bits);
 }
 
 void PCA9685::check_ret(int ret, std::string msg) {
