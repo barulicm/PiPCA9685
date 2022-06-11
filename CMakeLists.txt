@@ -13,7 +13,7 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake/modules")
 find_package(WiringPi REQUIRED)
 include_directories(${WiringPi_INCLUDE_DIRS})
 
-set(PYTHON_VERSION "3.5" CACHE STRING "Version of the Python interpreter you'd like to use. (ie. 2.7 or 3.5)")
+set(PYBIND11_PYTHON_VERSION "3" CACHE STRING "Version of the Python interpreter you'd like to use. (ie. 2.7 or 3.5)")
 
 find_package(PythonInterp ${PYTHON_VERSION} REQUIRED)
 message(STATUS "Using python interpreter: ${PYTHON_EXECUTABLE}")
