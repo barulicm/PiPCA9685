@@ -10,29 +10,42 @@ This library uses Gordon Henderson's [WiringPi](http://wiringpi.com/) to simplif
 
 ## Installation
 
-Before you begin, make sure your Pi has I2C enabled.
-   1. `sudo raspi-config`
+1. Before you begin, make sure your Pi has I2C enabled.
+
+   1. Run `sudo raspi-config`
    2. Select "Interfacing Options"
    3. Enable I2C automatic loading
+
+1. Install dependencies from apt
+
+   ```
+   sudo apt install pybind11-dev python3-distutils python3-dev
+   ```
    
-Install WiringPi, following Gordon's instructions [here](http://wiringpi.com/download-and-install/).
+1. Install WiringPi from source:
 
-Finally, clone, build, and install this library
+   ```
+   git clone https://github.com/WiringPi/WiringPi.git
+   cd WiringPi
+   ./build
+   ```
+
+1. Finally, clone, build, and install this library
+
+   ```bash
+   git clone https://github.com/barulicm/PiPCA9685.git
+   cd PiPCA9685
+   mkdir build && cd build
+   cmake ..
+   cmake --build .
+   sudo cmake --install .
+   cmake --build . --target install_python
+   ```
+
+**NOTE:** PiPCA9685 will default to installing the Python library for Python 3. If you'd like to use a different version, you can specify the version in the call to cmake.
 
 ```bash
-git clone 
-cd PiPCA9685
-mkdir build && cd build
-cmake ..
-make
-sudo make install
-make python_install
-```
-
-PiPCA9685 will default to installing the Python library for Python 3. If you'd like to use a different version, you can specify the version in the call to cmake.
-
-```bash
-cmake -DPYTHON_VERIONS 2.7 ..
+cmake -DPYBIND11_PYTHON_VERIONS 2.7 ..
 ```
 
 ## Examples
