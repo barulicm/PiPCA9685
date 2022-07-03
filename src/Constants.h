@@ -2,6 +2,8 @@
 #define RPY_PWM_HAT_CONSTANTS_H
 #include <cstdint>
 
+namespace PiPCA9685 {
+
 // Registers/etc:
 constexpr uint8_t MODE1              = 0x00;
 constexpr uint8_t MODE2              = 0x01;
@@ -24,5 +26,7 @@ constexpr uint8_t SLEEP              = 0x10;
 constexpr uint8_t ALLCALL            = 0x01;
 constexpr uint8_t INVRT              = 0x10;
 constexpr uint8_t OUTDRV             = 0x04;
+
+}  // namespace PiPCA9685
 
 #endif //RPY_PWM_HAT_CONSTANTS_H

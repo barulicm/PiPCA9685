@@ -3,7 +3,7 @@
 
 int main() {
   
-  PCA9685 pca{};
+  PiPCA9685::PCA9685 pca{};
 
   pca.set_pwm_freq(60.0);
   

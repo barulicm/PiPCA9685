@@ -1,5 +1,10 @@
+#ifndef PIPCA9685_I2CPERIPHERAL_H
+#define PIPCA9685_I2CPERIPHERAL_H
+
 #include <cstdint>
 #include <string>
+
+namespace PiPCA9685 {
 
 class I2CPeripheral {
 public:
@@ -17,3 +22,7 @@ private:
   void ConnectToPeripheral(const uint8_t address);
 
 };
+
+}  // namespace PiPCA9685
+
+#endif  // PIPCA9685_I2CPERIPHERAL_H

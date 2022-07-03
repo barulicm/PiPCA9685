@@ -4,6 +4,8 @@
 #include "Constants.h"
 #include "I2CPeripheral.h"
 
+namespace PiPCA9685 {
+
 PCA9685::PCA9685(const std::string &device, int address) {
   i2c_dev = std::make_unique<I2CPeripheral>(device, address);
   
@@ -61,3 +63,5 @@ void PCA9685::set_pwm_ms(const int channel, const double ms) {
   auto bits = ms * bits_per_ms;
   set_pwm(channel, 0, bits);
 }
+
+}  // namespace PiPCA9685

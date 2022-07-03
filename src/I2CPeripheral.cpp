@@ -9,6 +9,8 @@ extern "C" {
 }
 #include <system_error>
 
+namespace PiPCA9685 {
+
 I2CPeripheral::I2CPeripheral(const std::string& device, const uint8_t address) {
   OpenBus(device);
   ConnectToPeripheral(address);
@@ -50,3 +52,5 @@ void I2CPeripheral::ConnectToPeripheral(const uint8_t address) {
     throw std::system_error(errno, std::system_category(), "Could not set peripheral address.");
   }
 }
+
+}  // namespace PiPCA9685

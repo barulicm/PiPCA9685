@@ -4,6 +4,8 @@
 #include <string>
 #include <memory>
 
+namespace PiPCA9685 {
+
 class I2CPeripheral;
 
 class PCA9685 {
@@ -26,5 +28,7 @@ private:
     double frequency = 200.0;
 
 };
+
+}  // namespace PiPCA9685
 
 #endif //RPY_PWM_HAT_PCA9685_H

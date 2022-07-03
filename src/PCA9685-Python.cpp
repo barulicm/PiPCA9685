@@ -5,6 +5,8 @@
 
 namespace py = pybind11;
 
+using namespace PiPCA9685;
+
 PYBIND11_MODULE(PiPCA9685, m) {
   m.doc() = "Raspberry Pi driver library for PCA9685-based servo controllers.";
 
