@@ -3,9 +3,6 @@ project(PiPCA9685 VERSION 1.0.0)
 
 set(CMAKE_CXX_STANDARD 14)
 
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake/modules")
-
-
 #
 # Dependencies
 #
