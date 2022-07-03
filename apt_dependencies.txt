@@ -1,0 +1,4 @@
+pybind11-dev
+python3-distutils
+python3-dev
+libi2c-dev
