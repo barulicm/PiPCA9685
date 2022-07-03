@@ -19,15 +19,7 @@ This library uses Gordon Henderson's [WiringPi](http://wiringpi.com/) to simplif
 1. Install dependencies from apt
 
    ```
-   sudo apt install pybind11-dev python3-distutils python3-dev
-   ```
-   
-1. Install WiringPi from source:
-
-   ```
-   git clone https://github.com/WiringPi/WiringPi.git
-   cd WiringPi
-   ./build
+   sudo apt install pybind11-dev python3-distutils python3-dev libi2c-dev
    ```
 
 1. Finally, clone, build, and install this library

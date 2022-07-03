@@ -10,9 +10,6 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake/modules")
 # Dependencies
 #
 
-find_package(WiringPi REQUIRED)
-include_directories(${WiringPi_INCLUDE_DIRS})
-
 set(PYBIND11_PYTHON_VERSION "3" CACHE STRING "Version of the Python interpreter you'd like to use. (ie. 2.7 or 3.5)")
 
 find_package(PythonInterp ${PYTHON_VERSION} REQUIRED)
@@ -27,8 +24,8 @@ include_directories(include)
 # LIBRARY
 #
 
-add_library(PiPCA9685 src/PCA9685.cpp)
-target_link_libraries(PiPCA9685 ${WiringPi_LIBRARIES})
+add_library(PiPCA9685 src/PCA9685.cpp src/I2CPeripheral.cpp)
+target_link_libraries(PiPCA9685 i2c)
 set_property(TARGET PiPCA9685 PROPERTY POSITION_INDEPENDENT_CODE ON)
 set_target_properties(PiPCA9685 PROPERTIES VERSION ${PiPCA9685_VERSION} SOVERSION ${PiPCA9685_VERSION})
 
