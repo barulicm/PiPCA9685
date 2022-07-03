@@ -1,5 +1,6 @@
 #ifndef RPY_PWM_HAT_CONSTANTS_H
 #define RPY_PWM_HAT_CONSTANTS_H
+#include <cstdint>
 
 // Registers/etc:
 constexpr uint8_t MODE1              = 0x00;
