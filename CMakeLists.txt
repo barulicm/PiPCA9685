@@ -26,7 +26,7 @@ target_link_libraries(PiPCA9685 i2c)
 set_property(TARGET PiPCA9685 PROPERTY POSITION_INDEPENDENT_CODE ON)
 set_target_properties(PiPCA9685 PROPERTIES VERSION ${PiPCA9685_VERSION} SOVERSION ${PiPCA9685_VERSION})
 target_include_directories(PiPCA9685 PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>")
-message(STATUS "PiPCA9685: Added osqp-cpp library.")
+message(STATUS "PiPCA9685: Added PiPCA9685 library.")
 
 #
 # PYTHON BINDINGS
