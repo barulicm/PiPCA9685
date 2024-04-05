@@ -1,8 +1,8 @@
 from distutils.core import setup
 
 setup(
-    name='PiPCA9685',
-    packages=['PiPCA9685'],
-    package_dir={'PiPCA9685':'PiPCA9685'},
-    package_data={'PiPCA9685': ['*.so','*.a']}
+    name='PCA9685',
+    packages=['PCA9685'],
+    package_dir={'PCA9685':'PCA9685'},
+    package_data={'PCA9685': ['*.so','*.a']}
 )

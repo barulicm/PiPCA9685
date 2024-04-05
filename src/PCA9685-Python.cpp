@@ -1,14 +1,14 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 
-#include <PiPCA9685/PCA9685.h>
+#include <PCA9685/PCA9685.h>
 
 namespace py = pybind11;
 
-using namespace PiPCA9685;
+using namespace PCA9685;
 
-PYBIND11_MODULE(PiPCA9685, m) {
-  m.doc() = "Raspberry Pi driver library for PCA9685-based servo controllers.";
+PYBIND11_MODULE(PCA9685, m) {
+  m.doc() = "Driver library for PCA9685-based servo controllers.";
 
   py::class_<PCA9685>(m, "PCA9685")
           .def(py::init<std::string,int>(),py::arg("device") = "/dev/i2c-1", py::arg("address") = 0x40)

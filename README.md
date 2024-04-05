@@ -1,6 +1,6 @@
-# PiPCA9685
+# PCA9685
 
-PiPCA9685 provides an interface for controlling a PCA8695 chip from a Raspberry Pi in C++ and Python.
+PCA9685 provides an interface for controlling a PCA8695 chip from a Raspberry Pi in C++ and Python.
 
 This library was originally designed to control servos with [Adafruit's PWM Hat](https://www.adafruit.com/product/2327). It was born out of a desire for C++ bindings, which Adafruit's library lacks.
 
@@ -15,13 +15,13 @@ This library was originally designed to control servos with [Adafruit's PWM Hat]
 1. Clone repo
 
    ```bash
-   git clone https://github.com/barulicm/PiPCA9685.git
+   git clone https://github.com/incebellipipo/PCA9685.git
    ```
 
 1. Install dependencies from apt
 
    ```bash
-   cd PiPCA9685
+   cd PCA9685
    xargs -a apt_dependencies.txt sudo apt-get install -y
    ```
 
@@ -34,7 +34,7 @@ This library was originally designed to control servos with [Adafruit's PWM Hat]
    cmake --build build --target install_python
    ```
 
-**NOTE:** PiPCA9685 will default to installing the Python library for Python 3. If you'd like to use a different version, you can specify the version in the call to cmake.
+**NOTE:** PCA9685 will default to installing the Python library for Python 3. If you'd like to use a different version, you can specify the version in the call to cmake.
 
 ```bash
 cmake -DPYBIND11_PYTHON_VERIONS 2.7 ..

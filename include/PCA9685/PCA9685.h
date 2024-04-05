@@ -1,10 +1,10 @@
-#ifndef RPY_PWM_HAT_PCA9685_H
-#define RPY_PWM_HAT_PCA9685_H
+#ifndef PCA9685_H
+#define PCA9685_H
 
 #include <string>
 #include <memory>
 
-namespace PiPCA9685 {
+namespace PCA9685 {
 
 class I2CPeripheral;
 
@@ -23,12 +23,12 @@ public:
 
 private:
     std::unique_ptr<I2CPeripheral> i2c_dev;
-    
+
     // Default frequency pulled from PCA9685 datasheet.
-    double frequency = 200.0;
+    double m_frequency = 200.0;
 
 };
 
-}  // namespace PiPCA9685
+}  // namespace PCA9685
 
 #endif //RPY_PWM_HAT_PCA9685_H

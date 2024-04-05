@@ -1,8 +1,8 @@
-#ifndef RPY_PWM_HAT_CONSTANTS_H
-#define RPY_PWM_HAT_CONSTANTS_H
+#ifndef PCA9685_CONSTANTS_H
+#define PCA9685_CONSTANTS_H
 #include <cstdint>
 
-namespace PiPCA9685 {
+namespace PCA9685 {
 
 // Registers/etc:
 constexpr uint8_t MODE1              = 0x00;
@@ -27,6 +27,9 @@ constexpr uint8_t ALLCALL            = 0x01;
 constexpr uint8_t INVRT              = 0x10;
 constexpr uint8_t OUTDRV             = 0x04;
 
-}  // namespace PiPCA9685
+constexpr uint32_t CLOCK_FREQ        = 25000000; //25MHz default osc clock
 
-#endif //RPY_PWM_HAT_CONSTANTS_H
+
+}  // namespace PCA9685
+
+#endif //PCA9685_CONSTANTS_H

@@ -2,14 +2,16 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/ioctl.h>
+
 extern "C" {
 #include <linux/i2c.h>
 #include <linux/i2c-dev.h>
 #include <i2c/smbus.h>
 }
+
 #include <system_error>
 
-namespace PiPCA9685 {
+namespace PCA9685 {
 
 I2CPeripheral::I2CPeripheral(const std::string& device, const uint8_t address) {
   OpenBus(device);
@@ -53,4 +55,4 @@ void I2CPeripheral::ConnectToPeripheral(const uint8_t address) {
   }
 }
 
-}  // namespace PiPCA9685
+}  // namespace PCA9685
