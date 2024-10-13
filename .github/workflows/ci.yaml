@@ -20,13 +20,12 @@ jobs:
     - name: Install Dependencies
       run: xargs -a apt_dependencies.txt sudo apt-get install -y
 
-    - name: Configure CMake
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+    - name: Build and Install library
+      run: sudo cmake --workflow --preset install
 
-    - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+    - name: Build C++ example
+      working-directory: examples/cpp
+      run: cmake --workflow --preset build
 
-    - name: Test
-      working-directory: ${{github.workspace}}/build
-      run: ctest -C ${{env.BUILD_TYPE}}
-      
+    - name: Validate Python Install
+      run: python3 -c "from PiPCA9685 import PCA9685"

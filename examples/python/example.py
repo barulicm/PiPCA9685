@@ -1,4 +1,4 @@
-from PiPCA9685.PiPCA9685 import PCA9685
+from PiPCA9685 import PCA9685
 import time
 
 def main():
