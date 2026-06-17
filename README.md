@@ -65,3 +65,14 @@ To run the Python example, run the following command in the `examples/python/` d
 ```bash
 python3 example.py
 ```
+
+## Development
+
+If you want to work on a local copy without root access:
+```bash
+cmake -B build
+cmake --build build
+cmake --install build --prefix install
+```
+
+With this workflow, the example will be built in `./build/examples/cpp/example-cpp`.
