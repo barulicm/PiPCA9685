@@ -56,8 +56,15 @@ install(TARGETS PiPCA9685_cpp
     INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
 )
 
+# Strip the install prefix if Python_SITEARCH is underneath it
+cmake_path(
+    RELATIVE_PATH Python_SITEARCH
+    BASE_DIRECTORY "${CMAKE_INSTALL_PREFIX}"
+    OUTPUT_VARIABLE PYTHON_INSTALL_DIR
+)
+
 install(TARGETS PiPCA9685_python
-    DESTINATION ${Python_SITEARCH}
+    LIBRARY DESTINATION "${PYTHON_INSTALL_DIR}"
 )
 
 install(EXPORT PiPCA9685_export
@@ -74,3 +81,5 @@ if(NOT TARGET uninstall)
   add_custom_target(uninstall
     COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake)
 endif()
+
+add_subdirectory(examples/cpp)
