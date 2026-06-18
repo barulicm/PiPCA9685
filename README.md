@@ -39,10 +39,24 @@ This library was originally designed to control servos with [Adafruit's PWM Hat]
    sudo cmake --workflow --preset install
    ```
 
+   Alternatively, you can install the library without root permissions, only for your user, with the following command:
+
+   ```bash
+   cmake --workflow --preset install-nonroot
+   ```
+
+### Uninstalling
+
 You can uninstall the library with this CMake command:
 
 ```bash
 sudo cmake --workflow --preset uninstall
+```
+
+Or, if you installed without root permissions, use this command:
+
+```bash
+sudo cmake --workflow --preset uninstall-nonroot
 ```
 
 ## Examples
@@ -55,6 +69,13 @@ To build and run the C++ example, run the following commands in the `examples/cp
 
 ```bash
 cmake --workflow --preset build
+./build/example-cpp
+```
+
+If you installed without root permissions, you may need to tell cmake where to find the library:
+
+```bash
+PiPCA9685_DIR=~/.local/lib/cmake/PiPCA9685/ cmake --workflow --preset build
 ./build/example-cpp
 ```
 

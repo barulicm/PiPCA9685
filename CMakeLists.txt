@@ -50,14 +50,28 @@ target_link_libraries(PiPCA9685_python PRIVATE PiPCA9685_cpp)
 
 include(GNUInstallDirs)
 
+install(CODE "
+cmake_host_system_information(RESULT DISTRO_ID QUERY DISTRIB_ID)
+    
+if(DISTRO_ID STREQUAL \"ubuntu\" OR DISTRO_ID STREQUAL \"debian\")
+    if(CMAKE_INSTALL_PREFIX MATCHES \"^/usr\" OR CMAKE_INSTALL_PREFIX MATCHES \"^/usr/local\")
+        set(PYTHON_SITE_DIRNAME \"dist-packages\")
+    else()
+        set(PYTHON_SITE_DIRNAME \"site-packages\")
+    endif()
+else()
+    set(PYTHON_SITE_DIRNAME \"site-packages\")
+endif()
+
+file(INSTALL \$<TARGET_FILE:PiPCA9685_python>
+    DESTINATION \${CMAKE_INSTALL_PREFIX}/lib/python${Python_VERSION_MAJOR}.${Python_VERSION_MINOR}/\${PYTHON_SITE_DIRNAME}
+)
+")
+
 install(TARGETS PiPCA9685_cpp
     EXPORT PiPCA9685_export
     FILE_SET HEADERS
     INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
-)
-
-install(TARGETS PiPCA9685_python
-    DESTINATION ${Python_SITEARCH}
 )
 
 install(EXPORT PiPCA9685_export

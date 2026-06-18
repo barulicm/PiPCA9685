@@ -11,6 +11,13 @@
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release"
       }
+    },
+    {
+      "name": "install-nonroot",
+      "inherits": ["release"],
+      "cacheVariables": {
+        "CMAKE_INSTALL_PREFIX": "$env{HOME}/.local"
+      }
     }
   ],
   "buildPresets": [
@@ -24,8 +31,18 @@
       "targets": ["install"]
     },
     {
+      "name": "install-nonroot",
+      "configurePreset": "install-nonroot",
+      "targets": ["install"]
+    },
+    {
       "name": "uninstall",
       "configurePreset": "release",
+      "targets": ["uninstall"]
+    },
+    {
+      "name": "uninstall-nonroot",
+      "configurePreset": "install-nonroot",
       "targets": ["uninstall"]
     }
   ],
@@ -57,6 +74,19 @@
       ]
     },
     {
+      "name": "install-nonroot",
+      "steps": [
+        {
+          "name": "install-nonroot",
+          "type": "configure"
+        },
+        {
+          "name": "install-nonroot",
+          "type": "build"
+        }
+      ]
+    },
+    {
       "name": "uninstall",
       "steps": [
         {
@@ -65,6 +95,19 @@
         },
         {
           "name": "uninstall",
+          "type": "build"
+        }
+      ]
+    },
+    {
+      "name": "uninstall-nonroot",
+      "steps": [
+        {
+          "name": "install-nonroot",
+          "type": "configure"
+        },
+        {
+          "name": "uninstall-nonroot",
           "type": "build"
         }
       ]
