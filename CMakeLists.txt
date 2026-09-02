@@ -12,6 +12,13 @@ message(STATUS "Using Python interpreter: ${Python_EXECUTABLE}")
 
 find_package(pybind11 REQUIRED)
 
+# libi2c-dev: plain link_libraries(i2c) relies on i2c/smbus.h being on the
+# compiler's default include search path, which is only true natively - a
+# cross-compile's default paths come from the toolchain's own sysroot, not
+# arm64-sysroot/, so the header needs to be located explicitly.
+find_path(I2C_INCLUDE_DIR NAMES i2c/smbus.h REQUIRED)
+find_library(I2C_LIBRARY NAMES i2c REQUIRED)
+
 #
 # LIBRARY
 #
@@ -27,7 +34,8 @@ target_sources(PiPCA9685_cpp
     FILES
     include/PiPCA9685/PCA9685.h
 )
-target_link_libraries(PiPCA9685_cpp i2c)
+target_include_directories(PiPCA9685_cpp PRIVATE ${I2C_INCLUDE_DIR})
+target_link_libraries(PiPCA9685_cpp ${I2C_LIBRARY})
 set_property(TARGET PiPCA9685_cpp PROPERTY POSITION_INDEPENDENT_CODE ON)
 set_target_properties(PiPCA9685_cpp PROPERTIES
     OUTPUT_NAME PiPCA9685
